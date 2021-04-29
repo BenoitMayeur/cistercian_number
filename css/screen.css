@@ -1,0 +1,162 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 18px;
+    height: 100%;
+}
+
+body{
+    background-color: rgb(41, 41, 41);
+    margin:0;
+
+}
+
+main{
+    height: 100%;
+    min-height:100%;
+}
+
+.div_img{
+    height: 400px;
+    display: flex;
+    justify-content: center;
+
+}
+
+img{
+    height: 100%;
+    filter: grayscale(100%);
+    border-radius: 4px;
+}
+
+.canvas_area{
+    position: absolute;
+    top: 15%;
+
+    width: 200px;
+    height: 250px;
+    padding: 10px;
+}
+
+.p_question{
+    text-align: center;
+    color: rgb(206, 206, 206);
+    font-family: 'Cinzel', serif;
+}
+
+.div_input{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    height: 2rem;
+    font-size: 1rem;
+    background-color: rgb(206, 206, 206);
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 11px 10px 10px -6px rgba(206,206,206,0.48);
+    font-family: 'Cinzel', serif;
+    width: 8rem;
+}
+
+/**************************************************************************************************************************
+    Footer
+**************************************************************************************************************************/
+
+footer{
+    background-color: rgb(206, 206, 206);
+    font-family: 'Cinzel', serif;
+    clear: both;
+    position: static;
+    bottom:0;
+    width: 100%;
+    padding-bottom: 1rem;
+    margin-top: 5rem;
+}
+
+.div_more_explanations{
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    background-color: rgb(206, 206, 206);
+    padding: 0.5rem 0;
+}
+
+.link_explanations{
+    color:rgb(41, 41, 41);
+}
+
+.link_explanations:hover{
+    color:rgb(206, 206, 206);
+    background-color:rgb(41, 41, 41);
+}
+
+
+i{
+    font-size: 1.5rem;
+    color: white;
+}
+
+.f_main_div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.f_list_icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+
+}
+
+.f_div_one_icon{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.i_icon_git:hover{
+    color: gold;
+}
+
+.i_icon_ln:hover{
+    color: gold;
+}
+
+.i_icon_inst:hover{
+    color: gold;
+}
+
+.f_paragraph{
+    text-align: center;
+    margin: 0;
+}
+
+@media only screen and (min-width: 800px) {
+    .p_question{
+        font-size: 1.5rem;
+    }
+    input{
+        font-size: 1.5rem;
+        width: 15rem;
+    }
+
+    .div_img{
+        height: 500px;
+    }
+
+    .div_more_explanations{
+        width: 100%;
+    }
+    footer{
+        position: absolute;
+    }
+}
