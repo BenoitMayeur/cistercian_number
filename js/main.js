@@ -152,21 +152,26 @@ function drawNumber(figure, dataSet){
     CTX.lineWidth = 5;
     CTX.stroke();
 }
-
+/**
+ * checkNumber (canvas function): check the number received in parameter (number_to_translate)
+ * If the number is not a NaN and between 0 (included) and 9999 (included), it is sent to drawInCistercian() to be drawn
+ * If the number is a NaN, the canvas and the input are cleared
+ * The else is here to manage the case when the browsers that do not have the "maxLength" property: it cuts the input value to keep 
+ * only the 4 first characters and relaunch checkNumber with them in parameters
+ * @param {number} number_to_translate 
+ */
 function checkNumber(number_to_translate){
-    console.log('first number_to_translate', number_to_translate);
+
     let timeout = null;
+
     if(number_to_translate === number_to_translate && number_to_translate>=0 && number_to_translate<10000) {
         clearTimeout(timeout);
-
-        // Make a new timeout set to go off in 1000ms (1 second)
         timeout = setTimeout(function () {
             drawInCistercian(number_to_translate);
         }, 500);
     }
     else if(number_to_translate != number_to_translate){
-        console.log('dans le else if');
-        console.log('number_to_translate', number_to_translate);
+
         CTX.clearRect(0, 0, CANVAS_AREA.width, CANVAS_AREA.height);
 
         timeout = setTimeout(function () {
@@ -182,7 +187,12 @@ function checkNumber(number_to_translate){
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// The lines under are executed when the page load 
+
 INPUT_NUMBER.value = "";
+
+// The lines under are executed when the user finishes writing the number
 
 INPUT_NUMBER.addEventListener('keyup', function(){
 
