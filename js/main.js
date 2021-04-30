@@ -154,6 +154,7 @@ function drawNumber(figure, dataSet){
 }
 
 function checkNumber(number_to_translate){
+    console.log('first number_to_translate', number_to_translate);
     let timeout = null;
     if(number_to_translate === number_to_translate && number_to_translate>=0 && number_to_translate<10000) {
         clearTimeout(timeout);
@@ -164,7 +165,13 @@ function checkNumber(number_to_translate){
         }, 500);
     }
     else if(number_to_translate != number_to_translate){
+        console.log('dans le else if');
+        console.log('number_to_translate', number_to_translate);
         CTX.clearRect(0, 0, CANVAS_AREA.width, CANVAS_AREA.height);
+
+        timeout = setTimeout(function () {
+            INPUT_NUMBER.value = "";
+        }, 500);
     }
     else {
         let arrayNumber = Array.from(String(INPUT_NUMBER.value), Number);
