@@ -88,11 +88,11 @@ footer{
     padding: 0.5rem 0;
 }
 
-.link_explanations{
+.link{
     color:rgb(41, 41, 41);
 }
 
-.link_explanations:hover{
+.link:hover{
     color:rgb(206, 206, 206);
     background-color:rgb(41, 41, 41);
 }
