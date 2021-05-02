@@ -44,6 +44,41 @@ const LIST_DOTS = {
 };
 
 /**
+ * checkNumber (canvas function): check the number received in parameter (number_to_translate)
+ * If the number is not a NaN and between 0 (included) and 9999 (included), it is sent to drawInCistercian() to be drawn
+ * If the number is a NaN, the canvas and the input are cleared
+ * The else is here to manage the case when the browsers that do not have the "maxLength" property: it cuts the input value to keep 
+ * only the 4 first characters and relaunch checkNumber with them in parameters
+ * @param {number} number_to_translate 
+ */
+ function checkNumber(number_to_translate){
+
+    let timeout = null;
+
+    if(number_to_translate === number_to_translate && number_to_translate>=0 && number_to_translate<10000) {
+        clearTimeout(timeout);
+        timeout = setTimeout(function () {
+            drawInCistercian(number_to_translate);
+        }, 500);
+    }
+    else if(number_to_translate != number_to_translate){
+
+        CTX.clearRect(0, 0, CANVAS_AREA.width, CANVAS_AREA.height);
+
+        timeout = setTimeout(function () {
+            INPUT_NUMBER.value = "";
+        }, 500);
+    }
+    else {
+        let arrayNumber = Array.from(String(INPUT_NUMBER.value), Number);
+        slicedArray = arrayNumber.slice(0,4);
+        numberShorten = slicedArray.join("");
+        INPUT_NUMBER.value = numberShorten;
+        checkNumber(numberShorten);
+    }
+}
+
+/**
  * Canvas function: draws the vertical line in the center of the canvas 
  */
 function drawVerticalMiddleLine(){
@@ -151,40 +186,6 @@ function drawNumber(figure, dataSet){
     CTX.strokeStyle = color_lines;
     CTX.lineWidth = 5;
     CTX.stroke();
-}
-/**
- * checkNumber (canvas function): check the number received in parameter (number_to_translate)
- * If the number is not a NaN and between 0 (included) and 9999 (included), it is sent to drawInCistercian() to be drawn
- * If the number is a NaN, the canvas and the input are cleared
- * The else is here to manage the case when the browsers that do not have the "maxLength" property: it cuts the input value to keep 
- * only the 4 first characters and relaunch checkNumber with them in parameters
- * @param {number} number_to_translate 
- */
-function checkNumber(number_to_translate){
-
-    let timeout = null;
-
-    if(number_to_translate === number_to_translate && number_to_translate>=0 && number_to_translate<10000) {
-        clearTimeout(timeout);
-        timeout = setTimeout(function () {
-            drawInCistercian(number_to_translate);
-        }, 500);
-    }
-    else if(number_to_translate != number_to_translate){
-
-        CTX.clearRect(0, 0, CANVAS_AREA.width, CANVAS_AREA.height);
-
-        timeout = setTimeout(function () {
-            INPUT_NUMBER.value = "";
-        }, 500);
-    }
-    else {
-        let arrayNumber = Array.from(String(INPUT_NUMBER.value), Number);
-        slicedArray = arrayNumber.slice(0,4);
-        numberShorten = slicedArray.join("");
-        INPUT_NUMBER.value = numberShorten;
-        checkNumber(numberShorten);
-    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
