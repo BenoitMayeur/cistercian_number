@@ -10,7 +10,7 @@ html{
 body{
     background-color: rgb(41, 41, 41);
     margin:0;
-
+    min-height: 100%;
 }
 
 main{
@@ -34,9 +34,8 @@ img{
 .canvas_area{
     position: absolute;
     top: 15%;
-
     width: 200px;
-    height: 250px;
+    height: 200px;
     padding: 10px;
 }
 
@@ -71,11 +70,12 @@ footer{
     background-color: rgb(206, 206, 206);
     font-family: 'Cinzel', serif;
     clear: both;
-    position: static;
+    position: absolute;
     bottom:0;
     width: 100%;
     padding-bottom: 1rem;
     margin-top: 5rem;
+    font-size: 0.8rem;
 }
 
 .div_more_explanations{
@@ -123,16 +123,8 @@ i{
     margin-right: 0.5rem;
 }
 
-.i_icon_git:hover{
-    color: gold;
-}
-
-.i_icon_ln:hover{
-    color: gold;
-}
-
-.i_icon_inst:hover{
-    color: gold;
+.i_icon_git:hover, .i_icon_ln:hover, .i_icon_inst:hover{
+    color: rgb(41, 41, 41);
 }
 
 .f_paragraph{
@@ -150,7 +142,7 @@ i{
     }
 
     .div_img{
-        height: 500px;
+        height: 50vh;
     }
 
     .div_more_explanations{
