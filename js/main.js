@@ -18,6 +18,7 @@
     An explanation with more examples can be found here: https://en.wikipedia.org/wiki/The_Ciphers_of_the_Monks
 */
 const CANVAS_AREA = document.getElementById('canvas_area');
+
 const CTX = CANVAS_AREA.getContext('2d');
 const REFERENCE_WIDTH = CANVAS_AREA.width;
 const REFERENCE_HEIGHT = CANVAS_AREA.height;
@@ -197,8 +198,11 @@ INPUT_NUMBER.value = "";
 
 INPUT_NUMBER.addEventListener('keyup', function(){
 
-    let number_to_translate = parseInt(INPUT_NUMBER.value);
-    CTX.clearRect(0, 0, CANVAS_AREA.width, CANVAS_AREA.height);
-
-    checkNumber(number_to_translate);
+    if(CANVAS_AREA.getContext){
+        let number_to_translate = parseInt(INPUT_NUMBER.value);
+        CTX.clearRect(0, 0, CANVAS_AREA.width, CANVAS_AREA.height);
+        checkNumber(number_to_translate);
+    } else{
+        console.log("La balise canvas n'est pas prise en charge.");
+    }
 })
