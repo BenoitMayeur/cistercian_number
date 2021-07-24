@@ -1,5 +1,5 @@
 /*
-    Cistercians numbers are made from 12 points joined by lines and can show numbers from 1 to 9999
+    Cistercians numbers are made from 15 points joined by lines and can show numbers from 1 to 9999
     The vertical line in the center is always there. 
     The area should be divided in four quarters:
     The right top is for units
@@ -13,8 +13,10 @@
                         4****5****6
                         *****|*****
                         7****8****9
-                        *****|*****
+                        ***********
                         10***11**12
+                        ***********
+                        13***14**15
     An explanation with more examples can be found here: https://en.wikipedia.org/wiki/The_Ciphers_of_the_Monks
 */
 const CANVAS_AREA = document.getElementById('canvas_area');
